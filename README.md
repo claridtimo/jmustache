@@ -555,6 +555,20 @@ the defaults), it is safe to share a `Mustache.Compiler` instance across threads
 templates. If you pass immutable data to your templates when executing, it is safe to have multiple
 threads simultaneously execute a single `Template` instance.
 
+Building from Source
+====================
+
+The test suite includes the official [Mustache spec](https://github.com/mustache/spec)
+compliance tests, which live in a git submodule under `src/test/resources/specs`. After cloning,
+initialise it before building or the spec tests will fail to find their `.yml` data files:
+
+```
+git submodule update --init
+```
+
+Then build with `mvn install`. (The submodule is pinned to a known-good spec revision; newer spec
+revisions add optional tests this implementation does not yet support.)
+
 Limitations
 ===========
 
